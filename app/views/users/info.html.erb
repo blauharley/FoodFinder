@@ -1,0 +1,14 @@
+<% if current_user %>
+  <%= render "upper_user_information", :user => current_user %>
+<% end %>
+  
+<div id="main_header">
+  <h3><%= @user.first_name %> <%= @user.last_name %>'s Profile</h3>
+  <%= render 'layouts/menu', :user => @user %>
+</div>
+
+<div id="main_body">
+  <%= render "user_information", :user => @user %>
+  <%= @user.info_field %>
+  <div class="clear"></div>
+</div>

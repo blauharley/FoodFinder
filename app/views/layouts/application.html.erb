@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= I18n.t 'application.title'  %> </title>
+  <%= stylesheet_link_tag :all %>
+  <%= csrf_meta_tag %>
+  <meta name="updated_at" content="30.09.2012" />
+ <script src="https://www.google.com/jsapi?key=ABQIAAAAbJBurE6AcWFl0i1KGIO4ThS_YDogaUe9kD9y-xH7PTIONHSzWRTfCAu0UNLWzcsKyeoVU06m6-q6uw" type="text/javascript"></script>
+
+  <script language="Javascript" type="text/javascript">
+    //<![CDATA[
+      google.load("maps", "true");
+    //]]>
+  </script>
+  <%= javascript_include_tag "jquery.min", "jquery-ui.min", "rails", "jquery.maps", "jquery.cookie", "jquery.timepicker", "jquery.hoverintent", "geo", "foodcorp", "http://www.geoplugin.net/javascript.gp", "jquery-autocomplete/lib/jquery.bgiframe.min", "jquery-autocomplete/lib/jquery.dimensions", "jquery-autocomplete/jquery.autocomplete" %>
+</head>
+<body>
+  <!-- FB Like Button -->
+  <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <div style=''>
+  <%= render 'layouts/user_info' %>
+  </div>
+  <div id="wrapper">
+  <%= render 'layouts/header' %>
+  <div id="notifications">
+    <p class="notice" align="center"><%= notice %></p>
+    <p class="alert" align="center"><%= alert %></p>
+  </div>
+  <div id="main">
+    <%= yield %>
+  </div>
+  <div id="footer">
+  	<%= link_to "About", about_path %> -
+	<%= link_to "Imprint", imprint_path %> -
+	<%= link_to "Terms of service", terms_path %>
+  </div>
+  </div>
+</body>
+</html>

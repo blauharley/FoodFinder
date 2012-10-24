@@ -1,0 +1,60 @@
+<div id="main_header">
+  <h3>Eat around your place!</h3>
+</div>
+
+<div id="main_body">
+
+<!-- <h2><% unless user_signed_in? %>The world‘s most awesome cooking community. <%= link_to 'Take a tour!', tour_path %><% end  %></h2> -->
+
+<% if current_user %>
+	<table style="margin-left:20px; margin-top:20px">
+	<td>You are in...</td>
+	<td><%= image_tag("change.png", :id => 'animatecurrentUserLocationButton') %></td>
+	</table>
+	
+	<div id="currentUserLocation">
+	  
+	  <% if @location %>
+		<%= render 'locations/show_user_location' %>
+		<%= link_to 'Edit your current positions', edit_user_location_path(current_user,@location) %>
+	  <% else %>
+		<%= link_to 'Use your position to create and edit your meals, click here', new_user_location_path(current_user) %>
+	  <% end %>
+		
+	</div>
+<% end %>
+
+<% if current_user %>
+    <% if current_user.location %>
+		<% if current_user.location.activate %>
+		  <div id="mealfind">Home location: <span id="currentLocation"></span></div>
+		<% else %>
+		  <div id="mealfind">Current location: <span id="currentLocation"></span></div>
+		<% end %>
+		
+	<% else %>
+		<div id="mealfind">Current location: <span id="currentLocation"></span></div>
+	<% end %>
+<% else %>
+	<div id="mealfind">Current location: <span id="currentLocation"></span></div>
+<% end %>
+
+<%= form_tag(ajax_updatemap_path, :remote => true, :id => "address", :name => "address") do %>
+  <%= text_field_tag :searchLocation, @storred_search_location, :placeholder => 'enter another location...' %>
+  Radius: <%= select_tag :searchRadius, options_for_select([ 5, 10, 15, 20 ], @storred_search_radius), :class => "hoverSelect" %> km,
+  <%= hidden_field_tag(:searchLat) %>
+  <%= hidden_field_tag(:searchLon) %>
+  Date: <%= text_field_tag :time , params[:date], :class => "datepickeronly"  %>
+  <%= image_submit_tag("change.png", :id => :searchSubmit) %>
+<% end %>
+
+  <div id="home_wrapper">
+    <div id="map" style="height:350px; width: 370px; margin: 0 0 10px 30px;" class="float_left"></div>
+	<div id="meals_distance_stream">
+	  <%= render "current_meals", :meals => @meals %>		
+	</div>
+    <div class="clr"></div>
+  </div>
+
+<div class="clr"></div>
+</div>

@@ -1,0 +1,15 @@
+<% if current_user %>
+  <%= render "users/upper_user_information", :user => current_user %>
+<% end %>
+
+<div id="main_header">
+  <h3>Create new Meal</h3>
+  <%= render 'layouts/menu', :user => @user %>
+</div>
+<div id="main_body">
+  
+  <%= render 'meal_form' %><br /><br />
+  
+  <div class="clr"></div>
+  <br>
+</div>

@@ -1,0 +1,29 @@
+<div id="main_header">
+  <h3>Your Messages</h3>
+  <div id="tabnav">
+    <ul>
+      <li><%= link_to I18n.t('tab.inbox'), messages_in_path, :class => is_active?("inbox") %> </li>
+      <li><%= link_to I18n.t('tab.outbox'), messages_out_path, :class => is_active?("outbox") %> </li>
+    </ul>
+  </div>
+</div>
+
+<div id="main_body">
+  <ul>
+  <% @messages.each do |msg| %>
+    <li>
+      <% if msg.opened %>
+        <%= image_tag("mail_mark_read_icon.png") %>
+      <% else %>
+        <%= image_tag("mail_mark_unread_icon.png") %>
+      <% end %>
+      <%= link_to msg.topic, message_path(msg.id)  %>
+      <% if params[:action] == "inbox" %>
+        <%= link_to get_username_by_id(msg.sent_messageable_id), user_path(msg.sent_messageable_id), :class => "float_right" %>
+      <% else %>
+        <%= link_to get_username_by_id(msg.received_messageable_id), user_path(msg.received_messageable_id), :class => "float_right" %>
+      <% end  %>
+    </li>
+  <% end %>
+  </ul>
+</div>

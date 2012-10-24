@@ -1,0 +1,10 @@
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-10 20:10:18 +0200
+
+Mysql2::Error (Unknown database 'foodcorp_production'):
+  
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (33.1ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1064.5ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.0.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (1253.9ms)

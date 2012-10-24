@@ -1,0 +1,45 @@
+<div id="upper_user_information" style="margin-left:77%;width:200px">
+  <table>
+  <tr>
+  <td style="text-align:right">
+  <% cache do %>
+    <%= link_to image_tag(get_medium_avatar_url(user), :id => "upper_profile_avatar"), user_path(user) %>
+  <% end %>
+  
+  </td>
+  <td style="width:100px;color:white; font-size:12px">
+  <% unless current_user == user %>
+    <% if is_following(current_user, user) %>
+      <p>
+        <%= link_to image_tag("unfollow.png", :border=>0),
+          get_following(:user => user), :method => :delete, :id => "remove_followed" %>
+      </p>
+    <% else %>
+      <%if current_user %>
+        <p>
+          <%= link_to image_tag("follow.png", :border=>0),
+            fellowships_path(:follower_id => user), :method => :post %>
+        </p>
+      <%end%>
+    <% end %>
+  <% end %>
+  <% if user_signed_in? %>
+    <%unless user.id == current_user.id %>
+      <%= link_to image_tag("send_pm.png", :border=>0), new_message_path(:receiver => user.id), :id=>"send_message_button" %>
+    <%end%>
+  <% end %>
+
+  <h4 id="following_sensor">is following:</h4>
+  <div id="profile_follows">
+    
+  </div>
+
+  <h4 id="followed_sensor">is followed by:</h4>
+  <div id="profile_followers">
+    
+  </div>
+  <h4><%= user.meal_counter %> Meals</h4>
+  </td>
+  </tr>
+  </table>
+</div>

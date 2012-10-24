@@ -1,0 +1,13 @@
+<% if meal.meal_arrangements.count > 0 %>
+<ul>
+  <% meal.meal_arrangements.each do |meal_arrangement| %>
+    <% if meal_arrangement.acceptance == false  && meal.slots > 0 %>
+      <li><%= link_to meal_arrangement.user.first_name+" "+meal_arrangement.user.last_name, user_path(meal_arrangement.user_id) %>
+     (<%= link_to "Accept", meal_arrangement_path( meal_arrangement.id), :method => 'put', :class => 'accept' %> /
+      <%= link_to "Delete", meal_arrangement_path( meal_arrangement.id), :method => 'delete', :class => 'delete' %>)</li>
+    <%end%>
+  <%end%>
+      </ul>
+<%else%>
+  <ul><li>none</li></ul>
+<%end%>

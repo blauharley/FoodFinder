@@ -1,0 +1,638 @@
+@charset "utf-8";
+/*
+    Document   : style
+    Created on : 23.05.2011, 11:57:32
+    Author     : FT
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* ---- FONTS BEGIN ----*/
+@font-face {
+    font-family: 'BelloProRegular';
+    src: url('../fonts/bellopro-webfont.eot');
+    src: url('../fonts/bellopro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bellopro-webfont.woff') format('woff'),
+         url('../fonts/bellopro-webfont.ttf') format('truetype'),
+         url('../fonts/bellopro-webfont.svg#BelloProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* ---- FONTS END ----*/
+
+/* ---- BASIC BEG ----- */
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	background: #000 url('../images/bg.jpg');
+	font-family:'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', 'sans-serif';
+}
+
+p.notice, p.alert {
+	color:#fff;
+}
+
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+}
+
+#logo {
+	width: 178px;
+	height: 122px;
+	border: none;
+	float: left;
+}
+
+#top_navigation_container {
+	width: 602px;
+	height: 122px;
+	float: left;
+    position: relative;
+    right: 50px;    
+}
+
+#main {
+    margin: 0 0 0 130px;
+    width: 820px;
+}
+
+#main_header {
+    height:69px;
+}
+
+#main_body {
+    background: #fff;
+    -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;
+    padding: 5px;
+    overflow: auto;
+    width: 820px;
+}
+
+#footer {
+    text-align: center;
+}
+
+#footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.clr {
+    clear: both;
+}
+
+.float_right {
+    float: right;
+}
+
+#user_info_picture{
+	float:none;
+}
+
+.float_left {
+    float: left;
+}
+
+h1 {
+    font-size:45px;
+    display:block;
+    float:left;
+    padding:0 0 0 40px;
+    height:40px;
+}
+
+h2, h2 a {
+    font-family:Georgia;
+    font-weight:normal;
+    font-size:45px;
+}
+
+h2 a {
+    color:#ff505a;
+    text-decoration:underline;
+    font-style:italic;
+}
+
+h3 {
+    color: #e63600;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+#main_body ol, #main_body ul {
+    margin: 0 30px 0 30px;
+}
+
+img {
+    border: none;
+}
+
+#map{
+    border: 1px solid #000;
+}
+
+/* ---- BASIC END ----- */
+
+/* ---- TOPNAV BEG ----- */
+
+#topnav {
+	margin: 0 0 0 20px;
+}
+
+#topnav li {
+	float:left;
+	list-style-type:none;
+}
+
+#topnav li a {
+	position:relative;
+	display: block;
+	width:93px;
+	height:49px;
+	padding: 20px 5px 0 0;
+	margin-top: -10px;
+	overflow: hidden;
+	outline: none;
+	background: url('../images/topnav_bg.png') no-repeat;
+	font-family: "BelloProRegular";
+	color: #333333;
+	font-size: 20px;
+	text-decoration: none;
+	text-align:center;
+}
+
+#topnav li a:hover, #topnav a.nav_active {
+	background-position: 0px -69px;
+	margin-top: 0px;
+	color: #fff;
+}
+
+#tab_new_meal{
+	//width: 50px;
+	//margin-top:-1px;
+	font-size: 35px;
+}
+
+.recipe{
+	list-style-type:none;
+}
+/* ---- TOPNAV END ----- */
+
+/* ---- TABNAV BEG ----- */
+
+#tabnav {
+    margin: 0 0 20px 20px;
+}
+
+#tabnav li {
+    float:left;
+    list-style-type:none;
+}
+
+#tabnav li a {
+    display: block;
+    width:158px;
+    height:32px;
+    padding: 15px 0 0 0;
+    overflow: hidden;
+    outline: none;
+    background: url('../images/tab_bg.png') no-repeat;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    text-align:center;
+    font-family: Helvetica;
+}
+
+#tabnav li a:hover, #tabnav a.nav_active {
+    background-position: 0px -47px;
+    color: #333333;
+}
+
+.recipe:hover {
+	background-color: rgb(200, 200, 200);
+}
+
+/* ---- TABNAV END ----- */
+
+/* ---- CALENDAR END ----- */
+
+#calendar {
+	display:block;
+	position:absolute;
+	left:300px;
+	top:0px;
+	z-index: 100000;
+	width:260px;
+}
+
+#calendar a {
+	text-decoration: none;
+}
+
+#calendar_container {
+	display:none;
+	position:relative;
+	top:0px;
+	width: 255px;
+	border-left: 2px solid #aaa;
+	border-right: 2px solid #aaa;
+}
+
+#calendar_pull a {
+	outline:none;
+}
+
+.day_meal, .day_arrangement, .day_nothing {
+  height: 50px;
+  width: 255px;
+  display: block;
+  font-size: 12px;
+  color: #000;
+}
+
+.meal{  
+    width: 80%; 
+    border-bottom: 1px solid #000;
+    padding: 3px;
+    margin-left:8%;
+}
+
+.meal a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.meal_info{
+    color: #fff;
+}
+
+#calendar_container .meal_title {
+  color:#fff;
+  font-size: 14px;
+  padding: 8px 0 0 0;
+}
+
+.day_meal {
+    background: url('/images/calendar_bg.png') 0px -50px repeat-x;
+    color: #fff;
+}
+
+.day_arrangement {
+    background: url('/images/calendar_bg.png') 0px -100px repeat-x;
+    color: #fff;
+}
+
+.day_nothing {
+    background: url('/images/calendar_bg.png') 0px 0px repeat-x;
+    line-height: 50px;
+    text-align: center;
+}
+
+.day_nothing img {
+    margin: 0 0 -7px 0;
+}
+
+.day_date {
+    line-height: 50px;
+    text-align: center;
+    float: left;
+    width: 90px;
+}
+
+/* ---- CALENDAR END ----- */
+
+/* ---- LOGIN BEG ----- */
+
+#login {
+    position:absolute;
+    right:20px;
+    top:30px;
+    z-index: 100;
+}
+
+#login img {
+    width:20%;
+    height:20%;
+}
+
+#login p, #login p a {
+    color: #fff;
+    font-size: 12px;
+    text-align: right;
+}
+
+#signup_form {
+    display:none;
+}
+
+#signup_form input {
+    width:130px;
+    margin:5px 10px 0 50px;
+}
+
+#signup_form #user_submit {
+    width: 50px;
+    height: 50px;
+    margin: 3px 10px 0 0;
+}
+
+/* ---- LOGIN END ----- */
+
+/* ---- MAIN PAGE BEG ----- */
+
+#mealfind {
+	margin:20px 0 15px 25px;
+}
+
+#currentLocation {
+	font-weight:bold;
+    color: #e63600;
+}
+
+#searchLocation {
+	width:295px;
+	font-size:14px;
+	padding:3px 2px 3px 20px;
+	margin:0 0 20px 25px;
+	background:url('/images/search.png') center left no-repeat, -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.23, rgb(254,254,254)),
+	    color-stop(0.62, rgb(230,230,230))
+	);
+	background:url('/images/search.png') center left no-repeat, -moz-linear-gradient(#e6e6e6, #fefefe);
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	border:1px solid #999;
+}
+
+#searchSubmit {
+    margin: 0 0 20px 20px;
+}
+
+#radius {
+	list-style:none;
+	width:150px;
+	padding:2px 10px 3px 10px;
+	margin:0 0 30px 0;
+	-webkit-appearance: button;
+	-webkit-border-radius: 0px;
+	background:#ff505a url('/images/radiusdropdown.png') center right no-repeat;
+}
+
+#radius div {
+	display:none;
+}
+
+#meals_distance_stream{
+    float: left;
+    width:370px;
+    height: 350px;
+    background:#383838;
+    border: 1px solid #000;
+    overflow: scroll;
+    
+}
+
+#meals_distance_stream .each_meal_index{
+  float:left;
+  height: 90px;
+  padding: 5px;
+  margin: 5px 0 10px 0;
+  border-bottom: 1px solid black;
+  width: 370px;
+}
+
+#currentUserLocation{
+	margin-left:20px;
+	display:none;
+}
+
+#current_user_location_submit_button{
+	float: right;
+	margin-right: 50px;
+}
+
+/* ---- MAIN PAGE END ----- */
+
+/* ---- TABS BEG ----- */
+
+.tab_content {
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+.space_left {
+    margin: 0 0 0 30px;
+}
+
+.space_right {
+    margin: 0 30px 0 0;
+}
+/* ---- TABS END ----- */
+
+/* ---- USER_PROFILE BEGIN ----*/
+
+#profile_avatar {
+    width: 197px;
+}
+
+#user_information {
+    float: left;
+    width: 210px;
+    min-height: 100%;
+    margin: 5px 0 0 5px;
+}
+
+// name, messages, edit profile...
+#user_info{ 
+	
+}
+
+#upper_profile_avatar{
+	width: 50%;
+	height: 50%;
+}
+
+#provided_meals {
+    float: right;
+    width: 602px;
+    min-height: 100%;
+}
+
+/* ---- USER_PROFILE END ----*/
+
+/* ---- PROVIDE MEAL BEGIN ----*/
+.display_meal {
+    width: 517px;
+    min-height: 60px;
+    background: #191919 url('/images/meal_bg.png') top left no-repeat;
+    -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+    margin: 5px;
+    padding: 5px 5px 5px 70px;
+}
+
+.display_formerly_meal {
+    width: 517px;
+    min-height: 60px;
+    background: #191919 url('/images/formerly_meal_bg.png') top left no-repeat;
+    -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+    margin: 5px;
+    padding: 5px 5px 5px 70px;
+}
+
+#provide_meal {
+    width: 350px;
+    padding-left: 200px;
+}
+#provide_meal label {
+    width: 120px;
+    margin-right: 15px;
+    display: block;
+    color: #000;
+    float: left;
+    text-align: right;
+}
+
+#provide_meal input {
+    width: 200px;
+    height: 20px;
+}
+
+#provide_meal .submit {
+    width: 200px;
+    height: 25px;
+    margin: 10px 0 0 110px;
+}
+
+.meal_title, .meal_title a {
+    color: #e63600;
+    font-family: Helvetica;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px 0 0px 0;
+    display: block;
+}
+
+.formerly_meal_title, .formerly_meal_title a {
+    color: #F0F0F0;
+    font-family: Helvetica;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px 0 0px 0;
+    display: block;
+}
+
+.meal_info {
+    color: #fff;
+    font-family: Helvetica;
+    font-size: 12px;
+    margin: 5px 0 5px 0;
+    display: block;
+}
+
+.meal_info a {
+    color: #e63600;
+    text-decoration: none;
+}
+
+.meal_info {
+	width:250px;
+}
+
+.meal_right {
+	float:right;
+	margin:10px 10px 0 auto;
+}
+
+.meal_right img {
+	margin:0 auto 10px 180px;
+	z-index:1001;
+	position:relative;
+}
+
+.meal_right .openMeal {
+	margin:0 0 10px 185px;
+}
+
+.meal_right #map {
+	width:200px;
+	height:200px;
+	opacity:0;
+	position:absolute;
+	top:250px;
+	margin:0 0 0 60px;
+	z-index:1000;
+}
+
+#comment_area {
+    background: #333;
+    width: 425px;
+    height: 75px;
+    margin: 0 0 0 60px;
+    color: #fff;
+}
+
+#comment_submit {
+    margin: 0 0 0 370px;
+}
+
+.comment_avatar {
+    float: left;
+}
+
+.comment {
+    margin: 0 0 10px 60px;
+    min-height: 60px;
+}
+
+.comment_avatar img {
+    width: 50px;
+    height: 50px;
+    margin: 5px 0 0 0;
+}
+
+/* ---- PROVIDE MEAL End ----*/
+
+/* ---- SUBMENU BEGIN ----*/
+
+#submenu{
+  width: 100%;
+  height: 50px;
+}
+
+.submenu li{
+  position:relative;
+  top: -50px;
+  float:left;
+  list-style: none;
+  margin: 2px;
+  background: red;
+}
+
+.submenu a{
+  text-decoration: none;
+}
+
+/* ---- SUBMENU END ----*/
+
+#home_wrapper{
+    margin-top:20px;
+}
+
+.Adress{
+width:400px;
+}
+
+.date{
+margin-left: 135px;
+}
+
+
