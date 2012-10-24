@@ -18,9 +18,7 @@ test:
       password: 
 
 production:
-      host: localhost
-      adapter: mysql2
+      adapter: sqlite3
       database: dinnercollective_production
-      port: 3306
-      username: root
-      password:
+      pool: 5
+      timeout: 5000
