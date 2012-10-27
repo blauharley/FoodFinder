@@ -1,7 +1,7 @@
 set :application, "FoodFinder"
 set :repository,  "git@github.com:blauharley/FoodFinder.git"
 
-set :deploy_to, "/var/www/virthosts/dinnercollective.multimediatechnology.at/"
+set :deploy_to, "/var/www/virthosts/dinnercolletive.multimediatechnology.at"
 set :port, 5412
 set :user, "fhs33078"
 set :use_sudo, false
